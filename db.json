@@ -1,0 +1,83 @@
+{
+  "projects": [
+    {
+      "name": "PP",
+      "budget": "15000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 1
+    },
+    {
+      "name": "Instalação escritório",
+      "budget": "25000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 1000,
+      "services": [
+        {
+          "name": "serviço teste",
+          "cost": "1000",
+          "description": "descrição teste",
+          "id": "b77aa826-9d89-4316-a319-ed3a9d1d0668"
+        }
+      ],
+      "id": 3,
+      "service": [
+        {
+          "name": "uhsadusaddh",
+          "cost": "100",
+          "description": "sdafdsagdga",
+          "id": "e60e2762-b27b-43ac-9269-2d5c8beb9a26"
+        }
+      ]
+    },
+    {
+      "name": "Portfólio Desenv Web",
+      "budget": "1000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 200,
+      "services": [
+        {
+          "name": "Domínio Pago",
+          "cost": "100",
+          "description": "Assinar mensalidade de um domínio pago para disponibilizar o portfólio em um site real da internet e não no local da máquina.",
+          "id": "07da91ce-b1f2-4b9e-a86d-dd1b8cd7ea59"
+        },
+        {
+          "name": "Custo de Mão de Obra",
+          "cost": "100",
+          "description": "To me pagando 100 doletas pra desenvolver, stonks!",
+          "id": "fe34cb00-be99-46ef-8431-6c7289e965c9"
+        }
+      ],
+      "id": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Infra"
+    },
+    {
+      "id": 2,
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": 3,
+      "name": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Planejamento"
+    }
+  ]
+}
