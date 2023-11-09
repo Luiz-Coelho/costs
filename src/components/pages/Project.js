@@ -137,76 +137,72 @@ function Project() {
     setShowServiceForm(!showServiceForm);
   }
 
+  if (!project.name) return <Loading />
+
   return (
-    <>
-      {project.name ? (
-        <div className={styles.project_details}>
-          <Container customClass={"column"}>
-            {message && <Message type={type} msg={message} />}
-            <div className={styles.details_container}>
-              <h1>Projeto: {project.name}</h1>
-              <button onClick={toggleProjectForm} className={styles.btn}>
-                {!showProjectForm ? "Editar Projeto" : "Fechar"}
-              </button>
-              {!showProjectForm ? (
-                <div className={styles.project_info}>
-                  <p>
-                    <span>Categoria: </span>
-                    {project.category.name}
-                  </p>
-                  <p>
-                    <span>Orçamento total: </span>
-                    R${project.budget}
-                  </p>
-                  <p>
-                    <span>Total utilizado: </span>
-                    R${project.cost}
-                  </p>
-                </div>
-              ) : (
-                <ProjectForm
-                  handleSubmit={editPost}
-                  btnText={"Concluir Edição"}
-                  projectData={project}
-                ></ProjectForm>
-              )}
+    <div className={styles.project_details}>
+      <Container customClass={"column"}>
+        {message && <Message type={type} msg={message} />}
+        <div className={styles.details_container}>
+          <h1>Projeto: {project.name}</h1>
+          <button onClick={toggleProjectForm} className={styles.btn}>
+            {!showProjectForm ? "Editar Projeto" : "Fechar"}
+          </button>
+          {!showProjectForm ? (
+            <div className={styles.project_info}>
+              <p>
+                <span>Categoria: </span>
+                {project.category.name}
+              </p>
+              <p>
+                <span>Orçamento total: </span>
+                R${project.budget}
+              </p>
+              <p>
+                <span>Total utilizado: </span>
+                R${project.cost}
+              </p>
             </div>
-            <div className={styles.details_container}>
-              <h2>Adicione um serviço:</h2>
-              <button onClick={toggleServiceForm} className={styles.btn}>
-                {!showServiceForm ? "Adicionar Serviço" : "Fechar"}
-              </button>
-              <div className={styles.project_info}>
-                {showServiceForm && (
-                  <ServiceForm
-                    handleSubmit={createService}
-                    btnText={"Incluir serviço"}
-                    projectData={project}
-                  ></ServiceForm>
-                )}
-              </div>
-            </div>
-            <h2>Serviços:</h2>
-            <Container customClass="start">
-              {services.length > 0 &&
-                services.map((service) => (
-                  <ServiceCard
-                    name={service.name}
-                    cost={service.cost}
-                    description={service.description}
-                    id={service.id}
-                    key={service.id}
-                    handleRemove={removeService}
-                  />
-                ))}
-              {services.length === 0 && <p>Não há serviços cadastrados.</p>}
-            </Container>
-          </Container>
+          ) : (
+            <ProjectForm
+              handleSubmit={editPost}
+              btnText={"Concluir Edição"}
+              projectData={project}
+            ></ProjectForm>
+          )}
         </div>
-      ) : (
-        <Loading />
-      )}
-    </>
+        <div className={styles.details_container}>
+          <h2>Adicione um serviço:</h2>
+          <button onClick={toggleServiceForm} className={styles.btn}>
+            {!showServiceForm ? "Adicionar Serviço" : "Fechar"}
+          </button>
+          <div className={styles.project_info}>
+            {showServiceForm && (
+              <ServiceForm
+                handleSubmit={createService}
+                btnText={"Incluir serviço"}
+                projectData={project}
+              ></ServiceForm>
+            )}
+          </div>
+        </div>
+        <h2>Serviços:</h2>
+        <Container customClass="start">
+          {services.length > 0 &&
+            services.map((service) => (
+              <ServiceCard
+                name={service.name}
+                cost={service.cost}
+                description={service.description}
+                id={service.id}
+                key={service.id}
+                handleRemove={removeService}
+              />
+            ))}
+          {services.length === 0 && <p>Não há serviços cadastrados.</p>}
+        </Container>
+      </Container>
+    </div>
   );
 }
 
